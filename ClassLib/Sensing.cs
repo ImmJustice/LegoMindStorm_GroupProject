@@ -15,42 +15,42 @@ using Lego.Ev3.Desktop;
 
 namespace LegoStormGrp5
 {
-    public class Arena {
 
-        /// <summary>
-        /// Contains RED, BLACK, YELLOW, BLUE
-        /// </summary>
-        public string HomeCnr[];
+    public class Sensing
+    {
 
-        public Arena() {
+        public double vDist;
+        public int vGyro;
 
-        }
-
-        ~Arena() {
+        public Sensing()
+        {
 
         }
 
-        public int GetLocation() {
+        ~Sensing()
+        {
+
+        }
+
+        public int GetClr()
+        {
 
             return 0;
         }
 
-        /// <summary>
-        /// Rotate 360 to determine the shortest distance.
-        /// </summary>
-        /// <param name="pGyro"></param>
-        /// <param name="pDistance"></param>
-        public int GetNearestWallColor(int pGyro, double pDistance) {
+        public int GetDist()
+        {
 
             return 0;
         }
 
-        /// 
-        /// <param name="pColorStart"></param>
-        public int MovementLogic(int pColorStart) {
+        public int GetGyro()
+        {
 
             return 0;
         }
 
-    }//end Arena
+    }
+
+    //end Arena
 }

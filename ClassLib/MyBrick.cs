@@ -16,39 +16,35 @@ using Lego.Ev3.Desktop;
 namespace LegoStormGrp5
 {
 
-    public class Sensing
+    public class MyBrick
     {
 
-        public double vDist;
-        public int vGyro;
+        public Sensing m_Sensing;
+        public Arena m_Arena;
 
-        public Sensing()
+        public MyBrick()
         {
 
         }
 
-        ~Sensing()
+        ~MyBrick()
         {
 
         }
 
-        public int GetClr()
+        public string AlignToWall()
         {
 
-            return 0;
+            return "";
         }
 
-        public int GetDist()
+        public bool MakeConnection()
         {
 
-            return 0;
+            return false;
         }
 
-        public int GetGyro()
-        {
-
-            return 0;
-        }
-
-    }//end Sensing
+    }//end MyBrick
 }
+
+//end Sensing

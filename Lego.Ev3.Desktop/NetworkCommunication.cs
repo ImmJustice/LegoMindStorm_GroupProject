@@ -20,7 +20,7 @@ namespace Lego.Ev3
 		/// <summary>
 		/// Event fired when a complete report is received from the EV3 brick.
 		/// </summary>
-		public event EventHandler<ReportReceivedEventArgs> ReportReceived;
+		public event EventHandler<ReportReceivedEventArgs> ReportReceived;d
 
 		private const string UnlockCommand = "GET /target?sn=\r\nProtocol:EV3\r\n\r\n";
 
