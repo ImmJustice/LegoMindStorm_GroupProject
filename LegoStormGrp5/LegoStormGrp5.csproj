@@ -95,8 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLib\ClassLib.csproj">
-      <Project>{dbb9aa43-4ac7-4e9a-b89b-e564e014ab84}</Project>
+      <Project>{17602be4-cd02-4dfd-9e6e-5395a69d8ff1}</Project>
       <Name>ClassLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj">
+      <Project>{79c444de-86f1-4aff-903a-4b6ed31655ea}</Project>
+      <Name>Lego.Ev3.Desktop</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

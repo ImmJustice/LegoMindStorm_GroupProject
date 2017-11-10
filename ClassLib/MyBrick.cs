@@ -21,10 +21,11 @@ namespace LegoStormGrp5
 
         public Sensing m_Sensing;
         public Arena m_Arena;
+        public Brick Brick { get; set; }
 
         public MyBrick()
         {
-
+            
         }
 
         ~MyBrick()
@@ -38,13 +39,11 @@ namespace LegoStormGrp5
             return "";
         }
 
-        public bool MakeConnection()
+        public async void MakeConnection()
         {
-
-            return false;
+            Brick = new Brick(new UsbCommunication());
+            await Brick.ConnectAsync();
         }
 
     }//end MyBrick
 }
-
-//end Sensing

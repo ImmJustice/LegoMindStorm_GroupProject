@@ -22,7 +22,7 @@ namespace LegoStormGrp5
         /// <summary>
         /// Contains RED, BLACK, YELLOW, BLUE
         /// </summary>
-        public string HomeCnr[];
+        public string[] HomeCnr;
 
         public Arena()
         {

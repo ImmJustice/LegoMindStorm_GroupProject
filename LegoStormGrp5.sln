@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoStormGrp5", "LegoStormGrp5\LegoStormGrp5.csproj", "{428FCEAD-2113-4B11-A401-12427D960CBF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLib", "ClassLib\ClassLib.csproj", "{DBB9AA43-4AC7-4E9A-B89B-E564E014AB84}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lego.Ev3.Desktop", "Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj", "{79C444DE-86F1-4AFF-903A-4B6ED31655EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib\ClassLib.csproj", "{17602BE4-CD02-4DFD-9E6E-5395A69D8FF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{428FCEAD-2113-4B11-A401-12427D960CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{428FCEAD-2113-4B11-A401-12427D960CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{428FCEAD-2113-4B11-A401-12427D960CBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBB9AA43-4AC7-4E9A-B89B-E564E014AB84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBB9AA43-4AC7-4E9A-B89B-E564E014AB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBB9AA43-4AC7-4E9A-B89B-E564E014AB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBB9AA43-4AC7-4E9A-B89B-E564E014AB84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{79C444DE-86F1-4AFF-903A-4B6ED31655EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79C444DE-86F1-4AFF-903A-4B6ED31655EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79C444DE-86F1-4AFF-903A-4B6ED31655EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79C444DE-86F1-4AFF-903A-4B6ED31655EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17602BE4-CD02-4DFD-9E6E-5395A69D8FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17602BE4-CD02-4DFD-9E6E-5395A69D8FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17602BE4-CD02-4DFD-9E6E-5395A69D8FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17602BE4-CD02-4DFD-9E6E-5395A69D8FF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
