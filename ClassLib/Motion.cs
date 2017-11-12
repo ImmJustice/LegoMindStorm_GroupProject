@@ -50,7 +50,7 @@ namespace LegoStormGrp5
         /// <param name="pGyroTurn"></param>
         public void Rotate(int pGyroTurn)
         {
-
+            brick.DirectCommand.TurnMotorAtPowerAsync
         }
 
     }//end Motion

@@ -35,7 +35,7 @@ namespace LegoStormGrp5
         public int GetClr(object sender, BrickChangedEventArgs e)
         {
             int color = 0;
-            color = e.Ports[InputPort.Two].SIValue;
+            color = (int)e.Ports[InputPort.Two].SIValue;
             return color;
         }
 
