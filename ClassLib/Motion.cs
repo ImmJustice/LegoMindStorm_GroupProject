@@ -18,7 +18,7 @@ namespace LegoStormGrp5
     public class Motion
     {
 
-        public MyBrick m_MyBrick;
+        Brick brick = new Brick();
 
         public Motion()
         {
@@ -37,7 +37,11 @@ namespace LegoStormGrp5
         /// <param name="pBrake"></param>
         public void Move(int pPower1, int pPower2, uint pTime, bool pBrake)
         {
-
+            
+            //brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake | OutputPort.B, pPower2, pTime, false);    <--- code Lachie was talking about where we use both motors.
+            
+            brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake);
+            brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, pPower2, pTime, pBrake);
         }
 
         /// <summary>
