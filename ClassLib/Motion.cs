@@ -35,22 +35,23 @@ namespace LegoStormGrp5
         /// <param name="pPower2"></param>
         /// <param name="pTime"></param>
         /// <param name="pBrake"></param>
-        public void Move(int pPower1, int pPower2, uint pTime, bool pBrake)
+        public async void Move(int pPower1, int pPower2, uint pTime, bool pBrake)
         {
             
             //brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake | OutputPort.B, pPower2, pTime, false);    <--- code Lachie was talking about where we use both motors.
             
             brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake);
             brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, pPower2, pTime, pBrake);
+            await brick.BatchCommand.SendCommandAsync();
         }
 
         /// <summary>
         /// pGyroTurn = how much to turn
         /// </summary>
         /// <param name="pGyroTurn"></param>
-        public void Rotate(int pGyroTurn)
+        public async void Rotate(int pGyroTurn)
         {
-            brick.DirectCommand.TurnMotorAtPowerAsync
+            await brick.DirectCommand.TurnMotorAtPowerForTimeAsync();
         }
 
     }//end Motion
