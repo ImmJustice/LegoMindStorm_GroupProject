@@ -12,53 +12,60 @@ namespace LegoStormGrp5
     {
 
         public Sensing pSensing;
-        public Arena pArena;
         public Brick pBrick;
         public Motion pMotion;
 
         public string AlignToWall()
         {
-            pSensing = new Sensing();
+            pSensing = new Sensing();               //declare local instances of Sensing and Motion classe
             pMotion  = new Motion();
-            //. Order of operations;
-            //. 1. If distance <= 2cm move backwards 3 cm
-            //. 2. Do a 360* turn
-            //. 3. Store the starting Distance + Gyro in seperate variables then update both if current distance is shorter than starting distance
-            //. 4. Set the smallest distance and take the correlated gyro value
-            //. 5. Spin until vGyro == vGyroStart + 360
-            //. 6. Approach wall until distance >= 2cm
-            //. 7. call colour sensor and return colour
-            double vDist = pSensing.GetDist();
-            double vDistShortest = vDist;
-            int vGyro    = pSensing.GetGyro();
-            int vGyroShortest = vGyro;
-            int vGyroStart = vGyro;
+            
+                                                            //. Order of operations;
 
-            if (vDist >= 2)
+
+            double vDist = pSensing.GetDist();              // 1. Retrieve current distance
+            int vGyro = pSensing.GetGyro();                 // 1. Retrieve current gyro
+
+            double vDistShortest = vDist;           // Variable for storing shortest distance
+            int vGyroShortest = vGyro;              // Variable for storing store shortest gyro
+
+            int vGyroStart = vGyro;                         // 2. Store starting gyro for reallignment
+
+            if (vDist >= 2)                                 // 3. If distance <= 2cm move backwards for manuverability
             {
                 pMotion.Move(-50, -50, 50, false);
             }
             
-            pMotion.Rotate(360);
-            do
+            pMotion.Rotate(360);                            // 4. Do a 360* turn
+
+            do                                              // 5. Update vShortestDist+Gyro if vCurrentDist+Gyro is shorter
             {
                 if (vDist < vDistShortest)
                 {
                     vDistShortest = vDist;
                 }
-            } while (vGyro != (vGyroStart+360));
+            } while (vGyro != (vGyroStart+360));            // until 360 turn is complete
 
             pMotion.Rotate(vGyroShortest - vGyro);
 
-            do
+            do                                              // 6. Get within working colour sensor distance
             {
                 pMotion.Move(20, 20, 100, false);
             } while (vDist > 1);
 
-            pMotion.Move(0, 0, 100, true);
+            pMotion.Move(0, 0, 100, true);          // Break motors
 
-            string vColour = pSensing.GetClr();
-            return vColour;
+            string vColour = pSensing.GetClr();             // 7. Store wall colour
+
+            do                                              // 8. Reverse for turning space
+            {
+                pMotion.Move(-50, -50, 50, false);
+            } while (vDist < 2);
+
+            pMotion.Move(0, 0, 100, true);          // Break motors
+            
+
+            return vColour;                                 // 9. Return wall colour
         }
 
         public async void MakeConnection()
