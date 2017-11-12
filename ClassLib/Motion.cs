@@ -51,8 +51,19 @@ namespace LegoStormGrp5
         /// <param name="pGyroTurn"></param>
         public async void Rotate(int pGyroTurn)
         {
-            await brick.DirectCommand.TurnMotorAtPowerForTimeAsync();
-        }
+            if(pGyroTurn > 0)
+            {
+                //gyro we want = actual gyro + pgyro;
+                
 
-    }//end Motion
-}
+                //Turn right, until current gyro = gyro we want ^^^
+            }
+            else
+            {
+                //Turn Left;
+            }
+        }
+	        
+    }
+
+}//end Motion

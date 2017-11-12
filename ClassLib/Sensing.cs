@@ -39,11 +39,14 @@ namespace LegoStormGrp5
             return color;
         }
 
-        public double GetDist(object sender, BrickChangedEventArgs e)
-        {
+        public double GetDist(double pDistChanged)
+        {          
             vDist = (double)e.Ports[InputPort.Three].SIValue;
-            return vDist;
-            //changed int to double from design in first commit
+           
+            //if (vDist[index]<) IGNORE
+            //double list = new List<double>{ Int32.MinValue, Int32.MaxValue};
+           // double vDistChanged = list.Max() - list.Min();
+            return vDistChanged;
         }
 
         public int GetGyro(object sender, BrickChangedEventArgs e)
