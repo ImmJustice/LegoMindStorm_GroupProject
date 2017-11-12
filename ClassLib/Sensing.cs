@@ -32,25 +32,26 @@ namespace LegoStormGrp5
 
         }
 
-        public int GetClr()
+        public int GetClr(object sender, BrickChangedEventArgs e)
         {
-
-            return 0;
+            int color = 0;
+            color = e.Ports[InputPort.One].SIValue.ToString;
+            return color;
         }
 
-        public int GetDist()
+        public double GetDist(object sender, BrickChangedEventArgs e)
         {
-
-            return 0;
+            vDist = (double)e.Ports[InputPort.One].SIValue;
+            return vDist;
         }
 
-        public int GetGyro()
+        public int GetGyro(object sender, BrickChangedEventArgs e)
         {
-
-            return 0;
+            vGyro = (int)e.Ports[InputPort.One].SIValue;
+            return vGyro;
         }
 
     }
 
-    //end Arena
+    //end Sensing
 }
