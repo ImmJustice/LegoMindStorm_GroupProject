@@ -20,19 +20,18 @@ namespace LegoStormGrp5
     {
 
         /// <summary>
-        /// Contains RED, BLACK, YELLOW, BLUE
+        /// Contains Blue, Red, Black, Yellow {2 ,5 ,1 ,4 }
         /// </summary>
-        public string[] HomeCnr;
+        public int[] HomeCnr;
+
+        public int[] Colors = { 2, 5, 1, 4 };
 
         public Arena()
         {
 
         }
 
-        ~Arena()
-        {
-
-        }
+       
 
         public int GetLocation()
         {
@@ -55,8 +54,37 @@ namespace LegoStormGrp5
         /// <param name="pColorStart"></param>
         public int MovementLogic(int pColorStart)
         {
+            
+            int Left;
+            var index = Array.IndexOf(Colors, pColorStart);
 
-            return 0;
+            switch (index)
+            {
+                case 0:
+                    Left = 3;
+                    break;
+
+                default:
+                    Left = index - 1;
+                    break;
+            }
+
+            if (Colors[index] == HomeCnr[0] || Colors[index] == HomeCnr[1])
+            {
+                if (Colors[Left] == HomeCnr[0] || Colors[Left] == HomeCnr[1])
+                {
+                    return -90;
+                }
+                else
+                {
+                    return 90;
+                }
+            }
+            else
+            {
+                return 180;
+            }
+
         }
 
     }
