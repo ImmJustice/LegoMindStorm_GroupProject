@@ -103,5 +103,13 @@
       <Name>Lego.Ev3.Desktop</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BlkYel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\BluRed.png" />
+    <Resource Include="Images\RedBlk.png" />
+    <Resource Include="Images\YelBlu.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

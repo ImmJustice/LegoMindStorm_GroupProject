@@ -5,8 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LegoStormGrp5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="360" Width="560">
+    <Grid Margin="10,10,10,10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="231*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="203*"/>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="153*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" FontSize="22" Margin="0,0,0.6,3.6">Lego Storm Group 5</TextBlock>
+
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="1.2,0.4,2,214" Grid.RowSpan="2" Grid.Row="1">
+            <TextBlock Padding="0, 0, 10, 0">Distance Sensor:</TextBlock>
+            <TextBlock Name="DistanceText" Text="-"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="1.2,0.4,2,214" Grid.RowSpan="2" Grid.Row="1" Height="54" VerticalAlignment="Bottom">
+            <TextBlock Padding="0, 0, 10, 0" Margin="0,0,0,18" >Gyro Sensor</TextBlock>
+            <TextBlock x:Name="GyroText" Text="-"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Orientation="Horizontal" Margin="1.2,0.4,2,214" Grid.RowSpan="2" Grid.Row="1">
+            <TextBlock Padding="0, 0, 10, 0" Margin="0,0,0,10.4">ColorText:</TextBlock>
+            <TextBlock Name="ColorText" Text="-"/>
+        </StackPanel>
+
+
+        <Grid Grid.Column="1" Grid.Row="2" Margin="3,0,2,0" RenderTransformOrigin="0.508,0.442">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="imgBluRed" Grid.Column="0" Grid.Row="0" Source="E:\Lego\Assignment\BluRed.png" Margin="0,0,0,23">
+                <Image.Effect>
+                    <DropShadowEffect Opacity="0.6"/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="imgRedBlk" Grid.Column="2" Grid.Row="0" Source="E:\Lego\Assignment\RedBlk.png" Margin="0,0,0,23">
+                <Image.Effect>
+                    <DropShadowEffect Opacity="0.6"/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="imgYelBlu" Grid.Column="0" Grid.Row="1" Source="E:\Lego\Assignment\YelBlu.png" Margin="0,0,0,20">
+                <Image.Effect>
+                    <DropShadowEffect Opacity="0.6"/>
+                </Image.Effect>
+            </Image>
+            <Image x:Name="imgBlkYel" Grid.Column="2" Grid.Row="1" Source="E:\Lego\Assignment\BlkYel.png" Margin="0,0,0,20">
+                <Image.Effect>
+                    <DropShadowEffect Opacity="0.6"/>
+                </Image.Effect>
+            </Image>
+
+        </Grid>
+        <TextBlock Grid.Column="2" Grid.Row="2" TextWrapping ="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">Click on Corners to build sequence</TextBlock>
+        <StackPanel Grid.Column="3" Orientation="Vertical" Grid.Row="2" Margin="1.2,0,0.4,0">
+            <TextBlock>Sequence:</TextBlock>
+            <TextBlock Height="9"></TextBlock>
+            <ListBox x:Name="lstSeq" HorizontalAlignment="Center" Height="141" VerticalAlignment="Top" Width="113" />
+            <TextBlock></TextBlock>
+            <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Height="27" Margin="19,0,0,0" Width="113"/>
+
+        </StackPanel>
+
     </Grid>
 </Window>
