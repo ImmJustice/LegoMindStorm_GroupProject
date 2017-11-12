@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 using Lego.Ev3.Core;
 using Lego.Ev3.Desktop;
 
@@ -22,11 +23,20 @@ namespace LegoStormGrp5
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Brick Brick { get; set; }
+
         public MainWindow()
         {
-            
-
-            InitializeComponent();
+                        InitializeComponent();
         }
+
+
+        private async void btnGo_OnClick(object sender, RoutedEventArgs e)
+        {
+           
+            await Brick.DirectCommand.ClearAllDevicesAsync();
+        }
+
+        
     }
 }
