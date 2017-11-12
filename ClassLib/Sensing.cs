@@ -35,14 +35,15 @@ namespace LegoStormGrp5
         public int GetClr(object sender, BrickChangedEventArgs e)
         {
             int color = 0;
-            color = e.Ports[InputPort.One].SIValue.ToString;
+            color = e.Ports[InputPort.Two].SIValue.ToString;
             return color;
         }
 
         public double GetDist(object sender, BrickChangedEventArgs e)
         {
-            vDist = (double)e.Ports[InputPort.One].SIValue;
+            vDist = (double)e.Ports[InputPort.Three].SIValue;
             return vDist;
+            //changed int to double from design in first commit
         }
 
         public int GetGyro(object sender, BrickChangedEventArgs e)
