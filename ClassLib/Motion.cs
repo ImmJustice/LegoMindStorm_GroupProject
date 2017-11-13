@@ -17,7 +17,8 @@ namespace LegoStormGrp5
 {
     public class Motion
     {
-
+        public Brick Brick;
+        public Sensing Sensing;
         public Motion()
         {
 
@@ -35,12 +36,12 @@ namespace LegoStormGrp5
         /// <param name="pBrake"></param>
         public async void Move(int pPower1, int pPower2, uint pTime, bool pBrake)
         {
-            
+
             //brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake | OutputPort.B, pPower2, pTime, false);    <--- code Lachie was talking about where we use both motors.
-            
-            brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake);
-            brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, pPower2, pTime, pBrake);
-            await brick.BatchCommand.SendCommandAsync();
+
+            Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake);
+            Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, pPower2, pTime, pBrake);
+            await Brick.BatchCommand.SendCommandAsync();
         }
 
         /// <summary>
@@ -49,19 +50,26 @@ namespace LegoStormGrp5
         /// <param name="pGyroTurn"></param>
         public async void Rotate(int pGyroTurn)
         {
-            if(pGyroTurn > 0)
-            {
-                //gyro we want = actual gyro + pgyro;
-                
+            int vGyroStart = Sensing.GetGyro();
 
-                //Turn right, until current gyro = gyro we want ^^^
+            if (pGyroTurn > 0)
+            {
+                do
+                {
+                    Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -30, 10000, false);
+                    Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, 30, 10000, false);
+                    await Brick.BatchCommand.SendCommandAsync();
+                } while (vGyroStart != (vGyroStart + pGyroTurn));
             }
             else
             {
-                //Turn Left;
+                do
+                {
+                    Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 30, 10000, false);
+                    Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, -30, 10000, false);
+                    await Brick.BatchCommand.SendCommandAsync();
+                } while (vGyroStart != (vGyroStart + pGyroTurn));
             }
         }
-	        
     }
-
-}//end Motion
+}

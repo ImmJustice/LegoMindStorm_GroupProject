@@ -15,7 +15,7 @@ namespace LegoStormGrp5
         public Brick pBrick;
         public Motion pMotion;
 
-        public string AlignToWall()
+        public int AlignToWall()
         {
             pSensing = new Sensing();               //declare local instances of Sensing and Motion classe
             pMotion  = new Motion();
@@ -55,7 +55,7 @@ namespace LegoStormGrp5
 
             pMotion.Move(0, 0, 100, true);          // Break motors
 
-            string vColour = pSensing.GetClr();             // 7. Store wall colour
+            int vColour = pSensing.GetClr();             // 7. Store wall colour
 
             do                                              // 8. Reverse for turning space
             {
