@@ -18,8 +18,6 @@ namespace LegoStormGrp5
     public class Motion
     {
 
-        Brick brick = new Brick();
-
         public Motion()
         {
 

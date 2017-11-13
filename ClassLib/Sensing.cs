@@ -19,6 +19,8 @@ namespace LegoStormGrp5
     public class Sensing
     {
 
+        Brick brick = new Brick();
+
         public double vDist;
         public int vGyro;
 
@@ -32,26 +34,28 @@ namespace LegoStormGrp5
 
         }
 
-        public int GetClr(object sender, BrickChangedEventArgs e)
-        {
-            int color = 0;
-            color = (int)e.Ports[InputPort.Two].SIValue;
+        public async int GetClr()
+        {           
+            //int color = 0;
+            //color = (int)e.Ports[InputPort.Two].SIValue;
+            await brick.DirectCommand.ClearAllDevicesAsync();
+            int color = await brick.DirectCommand.ReadySIAsync(InputPort.Two, 1);
+
             return color;
         }
 
-        public double GetDist(double pDistChanged)
+        public async double GetDist(object sender, BrickChangedEventArgs e, double pDistChanged)
         {          
-            vDist = (double)e.Ports[InputPort.Three].SIValue;
-           
-            //if (vDist[index]<) IGNORE
-            //double list = new List<double>{ Int32.MinValue, Int32.MaxValue};
-           // double vDistChanged = list.Max() - list.Min();
-            return vDistChanged;
+            vDist = (double)e.Ports[InputPort.Three].SIValue;           
+            //not done I think
+            return vDist;
         }
 
-        public int GetGyro(object sender, BrickChangedEventArgs e)
+        public async int GetGyro()
         {
-            vGyro = (int)e.Ports[InputPort.One].SIValue;
+            await brick.DirectCommand.ClearAllDevicesAsync();
+            int vGyro = await (int)brick.DirectCommand.ReadySIAsync(InputPort.One, 2);            
+            
             return vGyro;
         }
 
