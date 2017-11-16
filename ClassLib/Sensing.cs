@@ -46,9 +46,8 @@ namespace LegoStormGrp5
             return vDist;
         }
 
-        public async int GetGyro()
+        public int GetGyro()
         {
-            await brick.DirectCommand.ClearAllDevicesAsync();
             int vGyro = e.Ports[InputPort.One].SIValue;            
             
             return;
