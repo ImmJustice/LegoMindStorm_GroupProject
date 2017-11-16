@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LegoStormGrp5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="360" Width="560">
+        Title="MainWindow" Height="480" Width="628.2">
     <Grid Margin="10,10,10,10">
 
         <Grid.RowDefinitions>
@@ -19,70 +19,116 @@
             <ColumnDefinition Width="203*"/>
             <ColumnDefinition Width="129*"/>
             <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" FontSize="22" Margin="0,0,0.6,3.6">Lego Storm Group 5</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" FontSize="22" Margin="0,0,0.6,3.4">Lego Storm Group 5</TextBlock>
 
-        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="1.2,0.4,2,214" Grid.RowSpan="2" Grid.Row="1">
-            <TextBlock Padding="0, 0, 10, 0">Distance Sensor:</TextBlock>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="1.2,58,2,0" Grid.RowSpan="3">
+            <TextBlock Padding="0, 0, 0, 0">Distance Sensor:</TextBlock>
             <TextBlock Name="DistanceText" Text="-"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="1.2,0.4,2,214" Grid.RowSpan="2" Grid.Row="1" Height="54" VerticalAlignment="Bottom">
-            <TextBlock Padding="0, 0, 10, 0" Margin="0,0,0,18" >Gyro Sensor</TextBlock>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="1,58,1.8,0" Height="38" VerticalAlignment="Top" Grid.RowSpan="2">
+            <TextBlock Padding="0, 0, 0, 0" Margin="0,0,0,0" >Gyro Sensor</TextBlock>
             <TextBlock x:Name="GyroText" Text="-"/>
 
         </StackPanel>
 
-        <StackPanel Grid.Column="3" Orientation="Horizontal" Margin="1.2,0.4,2,214" Grid.RowSpan="2" Grid.Row="1">
+        <StackPanel Grid.Column="3" Orientation="Horizontal" Margin="1.2,58,1.6,0" Grid.RowSpan="3">
             <TextBlock Padding="0, 0, 10, 0" Margin="0,0,0,10.4">ColorText:</TextBlock>
             <TextBlock Name="ColorText" Text="-"/>
         </StackPanel>
 
 
-        <Grid Grid.Column="1" Grid.Row="2" Margin="3,0,2,0" RenderTransformOrigin="0.508,0.442">
+        <Grid Grid.Column="1" Grid.Row="1" Margin="0.2,52.6,2,0" RenderTransformOrigin="0.508,0.442" Grid.RowSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="105*"/>
+                <RowDefinition Height="214*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="15"/>
                 <ColumnDefinition Width="0.5*"/>
+
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="imgBluRed" Grid.Column="0" Grid.Row="0" Source="E:\Lego\Assignment\BluRed.png" Margin="0,0,0,23">
-                <Image.Effect>
+            <Button x:Name="btnBluRed" Grid.Column="0" Grid.Row="0" Content="Button" HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="91" Click="btnBluRed_Click" Cursor="Hand">
+                <Button.Effect>
                     <DropShadowEffect Opacity="0.6"/>
-                </Image.Effect>
-            </Image>
-            <Image x:Name="imgRedBlk" Grid.Column="2" Grid.Row="0" Source="E:\Lego\Assignment\RedBlk.png" Margin="0,0,0,23">
-                <Image.Effect>
+                </Button.Effect>
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="D:\Lego\Assignment\BluRed.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnRedBlk" Grid.Column="1" Grid.Row="0" Content="Button" HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="91" Click="btnRedBlk_Click" Cursor="Hand">
+                <Button.Effect>
                     <DropShadowEffect Opacity="0.6"/>
-                </Image.Effect>
-            </Image>
-            <Image x:Name="imgYelBlu" Grid.Column="0" Grid.Row="1" Source="E:\Lego\Assignment\YelBlu.png" Margin="0,0,0,20">
-                <Image.Effect>
+                </Button.Effect>
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="D:\Lego\Assignment\RedBlk.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnBlkYel" Grid.Column="1" Grid.Row="1" Content="Button" HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="91" Click="btnBlkYel_Click" Cursor="Hand">
+                <Button.Effect>
                     <DropShadowEffect Opacity="0.6"/>
-                </Image.Effect>
-            </Image>
-            <Image x:Name="imgBlkYel" Grid.Column="2" Grid.Row="1" Source="E:\Lego\Assignment\BlkYel.png" Margin="0,0,0,20">
-                <Image.Effect>
+                </Button.Effect>
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="D:\Lego\Assignment\BlkYel.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnYelBlu" Grid.Column="0" Grid.Row="1" Content="Button" HorizontalAlignment="Left" Height="92" 
+                    VerticalAlignment="Top" Width="91" Click="btnYelBlu_Click" Cursor="Hand">
+                <Button.Effect>
                     <DropShadowEffect Opacity="0.6"/>
-                </Image.Effect>
-            </Image>
+                </Button.Effect>
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="D:\Lego\Assignment\YelBlu.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
         </Grid>
-        <TextBlock Grid.Column="2" Grid.Row="2" TextWrapping ="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">Click on Corners to build sequence</TextBlock>
-        <StackPanel Grid.Column="3" Orientation="Vertical" Grid.Row="2" Margin="1.2,0,0.4,0">
+        <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Vertical">
+            <TextBlock  TextWrapping ="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   TextAlignment="Center" Margin="11,25,9.8,0"><Run Text="Click on Corners to build route sequence"/></TextBlock>
+            <TextBlock Height="20"/>
+            <TextBlock Grid.Column="2" Grid.Row="1" x:Name="txtFeedBack" TextWrapping ="Wrap" 
+                       HorizontalAlignment="Center" VerticalAlignment="Top" Text="Messages"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Orientation="Vertical" Grid.Row="1" Margin="1.2,52.6,0.6,0" Grid.RowSpan="2">
             <TextBlock>Sequence:</TextBlock>
             <TextBlock Height="9"></TextBlock>
-            <ListBox x:Name="lstSeq" HorizontalAlignment="Center" Height="141" VerticalAlignment="Top" Width="113" />
-            <TextBlock></TextBlock>
-            <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Height="27" Margin="19,0,0,0" Width="113"/>
 
+            <TextBlock><InlineUIContainer>
+                    <ListView x:Name="lstSeq" Height="176" Width="148">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Corner" Width="80" DisplayMemberBinding="{Binding cnr}"/>
+                                <GridViewColumn Header="Clr 1" Width="30" DisplayMemberBinding="{Binding clr1}"/>
+                                <GridViewColumn Header="Clr 2" Width="30" DisplayMemberBinding="{Binding clr2}"/>
+                            </GridView>
+                        </ListView.View>
+                        
+                    </ListView>
+                </InlineUIContainer></TextBlock>
+
+            <TextBlock></TextBlock>
+            <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Height="27" Margin="19,0,0,0" 
+                    Width="113" Click="btnGo_Click"></Button>
         </StackPanel>
+        <Button x:Name="btnDel" Grid.Column="4" Grid.Row="2" Height="40" Margin="4.4,102.8,21.6,178" 
+                FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Content="X" Foreground="#FFE00000" Width="26" RenderTransformOrigin="1.835,0.274" 
+                IsEnabled="False" Click="btnDel_Click" />
+
 
     </Grid>
 </Window>
