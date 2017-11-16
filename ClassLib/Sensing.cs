@@ -34,9 +34,9 @@ namespace LegoStormGrp5
 
         public int GetClr()
         {           
-            int color = e.Ports[InputPort.Two].SIValue;
+            int vColour = e.Ports[InputPort.Two].SIValue;
 
-            return;
+            return vColour;
         }
 
         public async double GetDist(object sender, BrickChangedEventArgs e)
@@ -50,7 +50,7 @@ namespace LegoStormGrp5
         {
             int vGyro = e.Ports[InputPort.One].SIValue;            
             
-            return;
+            return vGyro;
         }
 
     }
