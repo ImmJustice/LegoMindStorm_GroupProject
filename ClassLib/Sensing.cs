@@ -12,15 +12,13 @@ using System.Text;
 using System.IO;
 using Lego.Ev3.Core;
 using Lego.Ev3.Desktop;
+using System.Threading.Tasks;
 
 namespace LegoStormGrp5
 {
 
     public class Sensing
     {
-
-        Brick brick = new Brick();
-
         public double vDist;
         public int vGyro;
 
@@ -34,29 +32,26 @@ namespace LegoStormGrp5
 
         }
 
-        public async int GetClr()
+        public int GetClr()
         {           
-            //int color = 0;
-            //color = (int)e.Ports[InputPort.Two].SIValue;
-            await brick.DirectCommand.ClearAllDevicesAsync();
-            int color = await brick.DirectCommand.ReadySIAsync(InputPort.Two, 1);
+            int color = e.Ports[InputPort.Two].SIValue;
 
-            return color;
+            return;
         }
 
-        public async double GetDist(object sender, BrickChangedEventArgs e, double pDistChanged)
-        {          
+        public async double GetDist(object sender, BrickChangedEventArgs e)
+        {              
             vDist = (double)e.Ports[InputPort.Three].SIValue;           
-            //not done I think
+            
             return vDist;
         }
 
         public async int GetGyro()
         {
             await brick.DirectCommand.ClearAllDevicesAsync();
-            int vGyro = await (int)brick.DirectCommand.ReadySIAsync(InputPort.One, 2);            
+            int vGyro = e.Ports[InputPort.One].SIValue;            
             
-            return vGyro;
+            return;
         }
 
     }

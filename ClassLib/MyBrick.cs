@@ -55,7 +55,7 @@ namespace LegoStormGrp5
 
             pMotion.Move(0, 0, 100, true);          // Break motors
 
-            int vColour = pSensing.GetClr();             // 7. Store wall colour
+            int vColour = pSensing.GetClr.;             // 7. Store wall colour
 
             do                                              // 8. Reverse for turning space
             {
