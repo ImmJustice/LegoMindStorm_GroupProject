@@ -12,15 +12,15 @@ namespace LegoStormGrp5
     {
 
         public Sensing pSensing;
-        public Brick pBrick;
+        public static Brick pBrick;
         public Motion pMotion;
 
         public int AlignToWall()
         {
-            pSensing = new Sensing();               //declare local instances of Sensing and Motion classe
+            pSensing = new Sensing(pBrick);               //declare local instances of Sensing and Motion classe
             pMotion  = new Motion();
             
-                                                            //. Order of operations;
+                                                            // <=- Order of operations -=>
 
 
             double vDist = pSensing.GetDist();              // 1. Retrieve current distance
@@ -55,7 +55,7 @@ namespace LegoStormGrp5
 
             pMotion.Move(0, 0, 100, true);          // Break motors
 
-            int vColour = pSensing.GetClr.;             // 7. Store wall colour
+            int vColour = pSensing.GetClr();             // 7. Store wall colour
 
             do                                              // 8. Reverse for turning space
             {

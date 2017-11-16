@@ -21,10 +21,11 @@ namespace LegoStormGrp5
     {
         public double vDist;
         public int vGyro;
+        public Brick Brick;
 
-        public Sensing()
+        public Sensing(Brick _Brick)
         {
-
+            Brick = _Brick;
         }
 
         ~Sensing()
@@ -33,22 +34,22 @@ namespace LegoStormGrp5
         }
 
         public int GetClr()
-        {           
-            int vColour = e.Ports[InputPort.Two].SIValue;
+        {
+            int vColour = (int)Brick.Ports[InputPort.Two].SIValue;
 
             return vColour;
         }
 
-        public async double GetDist(object sender, BrickChangedEventArgs e)
+        public double GetDist()
         {              
-            vDist = (double)e.Ports[InputPort.Three].SIValue;           
-            
+            vDist = (double)Brick.Ports[InputPort.Three].SIValue;           
+   
             return vDist;
         }
 
         public int GetGyro()
         {
-            int vGyro = e.Ports[InputPort.One].SIValue;            
+            int vGyro = (int)Brick.Ports[InputPort.One].SIValue;            
             
             return vGyro;
         }
