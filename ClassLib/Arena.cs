@@ -29,9 +29,9 @@ namespace LegoStormGrp5
         public Motion pMotion;
         public Brick pBrick;
 
-        public Arena()
+        public Arena(Brick _Brick)
         {
-
+            pBrick = _Brick;
         }
 
         /// <summary>

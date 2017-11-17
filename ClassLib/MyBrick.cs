@@ -11,7 +11,14 @@ namespace LegoStormGrp5
     public class MyBrick
     {
         public Brick pBrick;
-        
+        public Arena pArena;
+
+        public MyBrick()
+        {
+            MakeConnection();
+            pArena = new Arena(pBrick); 
+        }
+
         public async void MakeConnection()
         {
             pBrick = new Brick(new UsbCommunication());
