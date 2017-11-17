@@ -27,7 +27,9 @@ namespace LegoStormGrp5
 
     public partial class MainWindow : Window
     {
-        public Brick Brick { get; set; }
+
+        MyBrick vRobo = new MyBrick();
+        //public Brick Brick { get; set; }
         public class ListRow
         {
             public string cnr { get; set; }
@@ -46,9 +48,15 @@ namespace LegoStormGrp5
             txtFeedBack.Text = "Changed Text";
 
             /*for (int i = 0; i < lstSeq.Items.Count; i++)*/
-            foreach (var item in lstSeq.Items)
+            foreach (ListRow item in lstSeq.Items)
+
             {
-                txtFeedBack.Text = "Finding the " + lstSeq.Items.CurrentItem + " Corner";
+
+                string txtCorner = item.cnr;
+                txtFeedBack.Text += "Finding the " + txtCorner + " Corner";
+
+                //vRobo.Arena.HomeCnr = new int[] {item.clr1 ,item.clr2 };
+
             }
 
 
