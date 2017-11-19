@@ -52,7 +52,7 @@ namespace LegoStormGrp5
 
         public double GetDist()
         {              
-            double vDist = Double.Parse(Dist);          
+            double vDist = Convert.ToDouble(Dist);          
    
             return vDist;
         }
