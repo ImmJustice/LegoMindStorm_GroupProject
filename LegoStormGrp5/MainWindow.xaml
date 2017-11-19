@@ -59,7 +59,7 @@
                 </Button.Effect>
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="D:\Lego\Assignment\BluRed.png"/>
+                        <Image Source="/images/BluRed.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
@@ -69,7 +69,7 @@
                 </Button.Effect>
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="D:\Lego\Assignment\RedBlk.png"/>
+                        <Image Source="/images/RedBlk.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
@@ -79,7 +79,7 @@
                 </Button.Effect>
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="D:\Lego\Assignment\BlkYel.png"/>
+                        <Image Source="/images/BlkYel.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
@@ -90,7 +90,7 @@
                 </Button.Effect>
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="D:\Lego\Assignment\YelBlu.png"/>
+                        <Image Source="/images/YelBlu.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>

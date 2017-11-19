@@ -40,10 +40,11 @@ namespace LegoStormGrp5
         public MainWindow()
         {
             InitializeComponent();
+            //GyroText.Text = vRobo.pArena.pSensing.Gyro;
         }
-        public async void btnGo_Click(object sender, RoutedEventArgs e)
+        public void btnGo_Click(object sender, RoutedEventArgs e)
         {
-            //await Brick.DirectCommand.ClearAllDevicesAsync();
+            vRobo.pBrick.DirectCommand.ClearAllDevicesAsync();
             btnDel.IsEnabled = false;
             txtFeedBack.Text = "Changed Text";
 
@@ -53,13 +54,15 @@ namespace LegoStormGrp5
             {
 
                 string txtCorner = item.cnr;
-                txtFeedBack.Text += "Finding the " + txtCorner + " Corner";
+                txtFeedBack.Text = "Finding the " + txtCorner + " Corner";
 
-                //vRobo.Arena.HomeCnr = new int[] {item.clr1 ,item.clr2 };
+                vRobo.pArena.HomeCnr = new int[] {Convert.ToInt32(item.clr1) ,Convert.ToInt32(item.clr2) };
+                txtFeedBack.Text = "Finding the nearest wall";
+                vRobo.pArena.AlignToWall();
 
             }
 
-
+            txtFeedBack.Text = "Found nearest wall";
 
         }
 
