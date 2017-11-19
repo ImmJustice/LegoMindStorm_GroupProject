@@ -45,7 +45,7 @@ namespace LegoStormGrp5
 
         public int GetClr()
         {
-            int vColour = Int32.Parse(Colour);
+            int vColour = Convert.ToInt32(Colour);
 
             return vColour;
         }
@@ -59,7 +59,7 @@ namespace LegoStormGrp5
 
         public int GetGyro()
         {
-            int vGyro = Int32.Parse(Gyro);            
+            int vGyro = Convert.ToInt32(Gyro);            
             
             return vGyro;
         }
