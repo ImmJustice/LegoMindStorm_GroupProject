@@ -19,13 +19,16 @@ namespace LegoStormGrp5
 
     public class Sensing
     {
-        public double vDist;
-        public int vGyro;
+        public string Colour;
+        public string Dist;
+        public string Gyro;
         public Brick Brick;
 
         public Sensing(Brick _Brick)
         {
             Brick = _Brick;
+
+            Brick.BrickChanged += BrickChanged;
         }
 
         ~Sensing()
@@ -33,23 +36,30 @@ namespace LegoStormGrp5
 
         }
 
+        public void BrickChanged(object sender, BrickChangedEventArgs e)
+        {
+            Colour = e.Ports[InputPort.Three].SIValue.ToString();
+            Dist = e.Ports[InputPort.Two].SIValue.ToString();
+            Gyro = e.Ports[InputPort.Four].SIValue.ToString();
+        }
+
         public int GetClr()
         {
-            int vColour = (int)Brick.Ports[InputPort.Two].SIValue;
+            int vColour = Int32.Parse(Colour);
 
             return vColour;
         }
 
         public double GetDist()
         {              
-            vDist = (double)Brick.Ports[InputPort.Three].SIValue;           
+            vDist = Double.Parse(Dist);          
    
             return vDist;
         }
 
         public int GetGyro()
         {
-            int vGyro = (int)Brick.Ports[InputPort.One].SIValue;            
+            int vGyro = Int32.Parse(Gyro);            
             
             return vGyro;
         }
