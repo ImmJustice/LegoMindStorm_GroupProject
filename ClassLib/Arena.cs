@@ -82,55 +82,55 @@ namespace LegoStormGrp5
 
         }
 
-        public int AlignToWall()
+        public void AlignToWall()
         {
             pSensing = new Sensing(pBrick);             //declare local instances of Sensing and Motion classe
-            pMotion = new Motion();
+            pMotion = new Motion(pBrick,pSensing);
 
                                                         //    <=- Order of operations -=>
 
-            double vDist = pSensing.GetDist();              // 1. Retrieve current distance
-            int vGyro = pSensing.GetGyro();                 // 1. Retrieve current gyro
+            double vDistShortest = pSensing.pDist;               // Variable for storing shortest distance
+            int vGyroShortest = pSensing.pGyro;                  // Variable for storing store shortest gyro
 
-            double vDistShortest = vDist;               // Variable for storing shortest distance
-            int vGyroShortest = vGyro;                  // Variable for storing store shortest gyro
+            int vGyroStart = pSensing.pGyro;                         // 2. Store starting gyro for reallignment
 
-            int vGyroStart = vGyro;                         // 2. Store starting gyro for reallignment
-
-            if (vDist >= 2)                                 // 3. If distance <= 2cm move backwards for manuverability
+            if (pSensing.pDist <= 2)                                         // 3. If distance <= 2cm move backwards for manuverability
             {
-                pMotion.Move(-50, -50, 50, false);
+                pMotion.Move(-30, -30, 50, false);
             }
 
-            pMotion.Rotate(360);                            // 4. Do a 360* turn
+            pMotion.Rotate(360);                                    // 4. Do a 360* turn
 
-            do                                              // 5. Update vShortestDist+Gyro if vCurrentDist+Gyro is shorter
+            do                                                      // 5. Update vShortestDist+Gyro if vCurrentDist+Gyro is shorter
             {
-                if (vDist < vDistShortest)
+                if (pSensing.pDist < vDistShortest)
                 {
-                    vDistShortest = vDist;
+                    vDistShortest = pSensing.pDist;
+                    vGyroShortest = pSensing.pGyro;
                 }
-            } while (vGyro != (vGyroStart + 360));       // until 360 turn is complete
+            } while (pSensing.pGyro >= (vGyroStart + 360));       // until 360 turn is complete
 
-            pMotion.Rotate(vGyroShortest - vGyro);
+            pMotion.Rotate(vGyroShortest - pSensing.pGyro);
 
-            do                                              // 6. Get within working colour sensor distance
+            do                                                     // 6. Get within working colour sensor distance
             {
-                pMotion.Move(20, 20, 100, false);
-            } while (vDist > 1);
+                //pMotion.Move(20, 20, 100, false);
+                pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 20, 100, false);
+                pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 20, 100, false);
+            } while (pSensing.pDist > 1);
+
+            //pMotion.Move(0, 0, 100, true);              // Break motors
+            pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 0, 0, true);
+            pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 0, 0, true);
+
+            do                                              // 7. Reverse for turning space
+            {
+                //pMotion.Move(-10, -10, 100, false);
+                pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -10, 100, false);
+                pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -10, 100, false);
+            } while (pSensing.pDist < 2);
 
             pMotion.Move(0, 0, 100, true);              // Break motors
-
-            int vColour = pSensing.GetClr();                // 7. Store wall colour
-
-            do                                              // 8. Reverse for turning space
-            {
-                pMotion.Move(-50, -50, 50, false);
-            } while (vDist < 2);
-
-            pMotion.Move(0, 0, 100, true);              // Break motors
-
-            return vColour;                                 // 9. Return wall colour
         }
     }
 

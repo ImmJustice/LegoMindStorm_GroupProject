@@ -19,16 +19,19 @@ namespace LegoStormGrp5
 
     public class Sensing
     {
-        public string Colour;
-        public string Dist;
-        public string Gyro;
+        public int pColour;
+        public double pDist;
+        public int pGyro;
+
         public Brick Brick;
 
         public Sensing(Brick _Brick)
         {
             Brick = _Brick;
 
-            Brick.BrickChanged += BrickChanged;
+            Brick.BrickChanged += GetClr;
+            Brick.BrickChanged += GetDist;
+            Brick.BrickChanged += GetGyro;
         }
 
         ~Sensing()
@@ -36,32 +39,29 @@ namespace LegoStormGrp5
 
         }
 
-        public void BrickChanged(object sender, BrickChangedEventArgs e)
+        //public void BrickChanged(object sender, BrickChangedEventArgs e)
+        //{
+        //    Brick.BrickChanged += GetClr;
+        //    Brick.BrickChanged += GetDist;
+        //    Brick.BrickChanged += GetGyro;
+        //    //pColour = e.Ports[InputPort.Three].SIValue.ToString();
+        //    //pDist = e.Ports[InputPort.Two].SIValue.ToString();
+        //    //pGyro = e.Ports[InputPort.One].SIValue.ToString();
+        //}
+
+        void GetClr(object sender, BrickChangedEventArgs e)
         {
-            Colour = e.Ports[InputPort.Three].SIValue.ToString();
-            Dist = e.Ports[InputPort.Two].SIValue.ToString();
-            Gyro = e.Ports[InputPort.Four].SIValue.ToString();
+           pColour = (int)e.Ports[InputPort.Three].SIValue;
         }
 
-        public int GetClr()
-        {
-            int vColour = Convert.ToInt32(Colour);
-
-            return vColour;
-        }
-
-        public double GetDist()
+        void GetDist(object sender, BrickChangedEventArgs e)
         {              
-            double vDist = Convert.ToDouble(Dist);          
-   
-            return vDist;
+            pDist = (double)e.Ports[InputPort.Two].SIValue;
         }
 
-        public int GetGyro()
+        void GetGyro(object sender, BrickChangedEventArgs e)
         {
-            int vGyro = Convert.ToInt32(Gyro);            
-            
-            return vGyro;
+            pGyro = (int)e.Ports[InputPort.One].SIValue;
         }
 
     }

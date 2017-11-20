@@ -17,11 +17,12 @@ namespace LegoStormGrp5
 {
     public class Motion
     {
-        public Brick Brick;
-        public Sensing Sensing;
-        public Motion()
+        public Brick pBrick;
+        public Sensing pSensing;
+        public Motion(Brick _brick, Sensing _Sense)
         {
-
+            pBrick = _brick;
+            pSensing = _Sense;
         }
 
         ~Motion()
@@ -39,9 +40,9 @@ namespace LegoStormGrp5
 
             //brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake | OutputPort.B, pPower2, pTime, false);    <--- code Lachie was talking about where we use both motors.
 
-            Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake);
-            Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, pPower2, pTime, pBrake);
-            await Brick.BatchCommand.SendCommandAsync();
+            pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, pPower1, pTime, pBrake);
+            pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, pPower2, pTime, pBrake);
+            await pBrick.BatchCommand.SendCommandAsync();
         }
 
         /// <summary>
@@ -50,25 +51,25 @@ namespace LegoStormGrp5
         /// <param name="pGyroTurn"></param>
         public async void Rotate(int pGyroTurn)
         {
-            int vGyroStart = Sensing.GetGyro();
+            int vGyroStart = Convert.ToInt32(pSensing.pGyro);
 
             if (pGyroTurn > 0)
             {
                 do
                 {
-                    Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -30, 10000, false);
-                    Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, 30, 10000, false);
-                    await Brick.BatchCommand.SendCommandAsync();
-                } while (vGyroStart != (vGyroStart + pGyroTurn));
+                    pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -30, 10000, false);
+                    pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 30, 10000, false);
+                    await pBrick.BatchCommand.SendCommandAsync();
+                } while (vGyroStart <= (vGyroStart + pGyroTurn));
             }
             else
             {
                 do
                 {
-                    Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 30, 10000, false);
-                    Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.B, -30, 10000, false);
-                    await Brick.BatchCommand.SendCommandAsync();
-                } while (vGyroStart != (vGyroStart + pGyroTurn));
+                    pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 30, 10000, false);
+                    pBrick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -30, 10000, false);
+                    await pBrick.BatchCommand.SendCommandAsync();
+                } while (vGyroStart >= (vGyroStart + pGyroTurn));
             }
         }
     }
