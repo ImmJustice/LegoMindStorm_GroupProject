@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib\ClassL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoStormTests", "LegoStormTests\LegoStormTests.csproj", "{88BBCB98-A99D-4376-AA3F-98FF1E169C3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoRevamp", "LegoRevamp\LegoRevamp.csproj", "{471AA1BC-1C12-4466-8C00-7674FC272EB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{88BBCB98-A99D-4376-AA3F-98FF1E169C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88BBCB98-A99D-4376-AA3F-98FF1E169C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88BBCB98-A99D-4376-AA3F-98FF1E169C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{471AA1BC-1C12-4466-8C00-7674FC272EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471AA1BC-1C12-4466-8C00-7674FC272EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471AA1BC-1C12-4466-8C00-7674FC272EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471AA1BC-1C12-4466-8C00-7674FC272EB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
