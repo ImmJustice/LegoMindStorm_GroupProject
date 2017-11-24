@@ -8,7 +8,7 @@ using Lego.Ev3.Core;
 
 namespace LegoRevamp
 {
-    class Sensing
+    public class Sensing
     {
         private Brick pBrick;
 
@@ -24,9 +24,9 @@ namespace LegoRevamp
 
         public void ValuesChanged(object sender, BrickChangedEventArgs e)
         {
-            CurrentDistance = (int)e.Ports[InputPort.One].SIValue;
-            CurrentGyro = (int)e.Ports[InputPort.Two].SIValue;
-            CurrentColor = (int)e.Ports[InputPort.Three].SIValue;
+            CurrentDistance = (int)e.Ports[InputPort.Three].SIValue;
+            CurrentGyro = (int)e.Ports[InputPort.One].SIValue;
+            CurrentColor = (int)e.Ports[InputPort.Two].SIValue;
         }
 
     }

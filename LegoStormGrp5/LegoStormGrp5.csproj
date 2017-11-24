@@ -94,13 +94,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLib\ClassLib.csproj">
-      <Project>{17602be4-cd02-4dfd-9e6e-5395a69d8ff1}</Project>
-      <Name>ClassLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj">
       <Project>{79c444de-86f1-4aff-903a-4b6ed31655ea}</Project>
       <Name>Lego.Ev3.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LegoRevamp\LegoRevamp.csproj">
+      <Project>{471aa1bc-1c12-4466-8c00-7674fc272eb4}</Project>
+      <Name>LegoRevamp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Lego.Ev3.Desktop;
+using LegoRevamp;
 
 
 namespace LegoStormGrp5
@@ -42,9 +43,9 @@ namespace LegoStormGrp5
             InitializeComponent();
             //GyroText.Text = vRobo.pArena.pSensing.Gyro;
         }
-        public void btnGo_Click(object sender, RoutedEventArgs e)
+        public async void btnGo_Click(object sender, RoutedEventArgs e)
         {
-            vRobo.pBrick.DirectCommand.ClearAllDevicesAsync();
+            
             btnDel.IsEnabled = false;
             txtFeedBack.Text = "Changed Text";
 
@@ -58,7 +59,7 @@ namespace LegoStormGrp5
 
                 vRobo.pArena.HomeCnr = new int[] {Convert.ToInt32(item.clr1) ,Convert.ToInt32(item.clr2) };
                 txtFeedBack.Text = "Finding the nearest wall";
-                vRobo.pArena.AlignToWall();
+                vRobo.LocateHome();
 
             }
 

@@ -7,7 +7,7 @@ using Lego.Ev3.Desktop;
 using Lego.Ev3.Core;
 namespace LegoRevamp
 {
-    class Arena
+    public class Arena
     {
         public int[] HomeCnr;
         public int[] Colors = { 2, 5, 1, 4 };
